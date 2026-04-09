@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festival Florece — Music • Culture • Experience</title>
+  <meta name="description" content="Festival Florece is a vibrant, immersive music and culture festival. Get your tickets now and join the experience.">
+  <meta property="og:title" content="Festival Florece">
+  <meta property="og:description" content="Music • Culture • Experience — A vibrant, immersive festival celebrating music, art, food, and community.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --neon-green: #d4ff3f;
+      --cyan: #54d7ff;
+      --purple: #9c6cff;
+      --pink: #ff4ec7;
+      --bg-dark-start: #05070d;
+      --bg-dark-end: #09101c;
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f0f2f5;
+      --text-secondary: rgba(240, 242, 245, 0.6);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, var(--bg-dark-start) 0%, var(--bg-dark-end) 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Animated Background ===== */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.3;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .bg-orb--1 {
+      width: 600px;
+      height: 600px;
+      background: var(--purple);
+      top: -10%;
+      left: -10%;
+      animation-delay: 0s;
+    }
+
+    .bg-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: var(--pink);
+      top: 40%;
+      right: -15%;
+      animation-delay: -7s;
+      animation-duration: 25s;
+    }
+
+    .bg-orb--3 {
+      width: 400px;
+      height: 400px;
+      background: var(--cyan);
+      bottom: -5%;
+      left: 30%;
+      animation-delay: -14s;
+      animation-duration: 22s;
+    }
+
+    .bg-orb--4 {
+      width: 350px;
+      height: 350px;
+      background: var(--neon-green);
+      top: 20%;
+      left: 50%;
+      opacity: 0.15;
+      animation-delay: -3s;
+      animation-duration: 28s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(60px, -40px) scale(1.1); }
+      50% { transform: translate(-30px, 60px) scale(0.95); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(5, 7, 13, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .navbar__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .navbar__logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--neon-green), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar__link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 100px;
+      color: var(--text-secondary);
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .navbar__link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar__link--cta {
+      background: var(--neon-green);
+      color: #05070d;
+      font-weight: 600;
+    }
+
+    .navbar__link--cta:hover {
+      background: #e0ff6a;
+      color: #05070d;
+    }
+
+    .navbar__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .navbar__toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .navbar__toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar__toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar__toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ===== Content Wrapper ===== */
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Section Base ===== */
+    section {
+      padding: 120px 24px;
+    }
+
+    .section__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 72px;
+      position: relative;
+    }
+
+    .hero__content {
+      max-width: 800px;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 100px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero__badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--neon-green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 255, 63, 0.4); }
+      50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(212, 255, 63, 0); }
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--neon-green) 40%, var(--cyan) 70%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 8s ease-in-out infinite;
+      background-size: 300% 300%;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero__subtitle span {
+      color: var(--cyan);
+    }
+
+    .hero__description {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .btn--primary {
+      background: var(--neon-green);
+      color: #05070d;
+      box-shadow: 0 0 30px rgba(212, 255, 63, 0.3), 0 0 60px rgba(212, 255, 63, 0.1);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(212, 255, 63, 0.5), 0 0 80px rgba(212, 255, 63, 0.2);
+    }
+
+    .btn--secondary {
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn--secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Stats Section ===== */
+    .stats {
+      padding: 80px 24px;
+    }
+
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 40px 24px;
+      border-radius: var(--radius-md);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-card__number {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .stat-card:nth-child(1) .stat-card__number {
+      background: linear-gradient(135deg, var(--neon-green), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-card:nth-child(2) .stat-card__number {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-card:nth-child(3) .stat-card__number {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-card:nth-child(4) .stat-card__number {
+      background: linear-gradient(135deg, var(--pink), var(--neon-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-card__label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== Features Section ===== */
+    .features {
+      padding: 120px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header__label {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neon-green);
+      margin-bottom: 16px;
+    }
+
+    .section-header__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-header__description {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .feature-card:nth-child(2)::before {
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+
+    .feature-card:nth-child(3)::before {
+      background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    }
+
+    .feature-card:nth-child(4)::before {
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .feature-card:nth-child(1) .feature-card__icon {
+      background: rgba(212, 255, 63, 0.1);
+    }
+
+    .feature-card:nth-child(2) .feature-card__icon {
+      background: rgba(84, 215, 255, 0.1);
+    }
+
+    .feature-card:nth-child(3) .feature-card__icon {
+      background: rgba(156, 108, 255, 0.1);
+    }
+
+    .feature-card:nth-child(4) .feature-card__icon {
+      background: rgba(255, 78, 199, 0.1);
+    }
+
+    .feature-card__title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card__text {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    /* ===== Social Section ===== */
+    .social {
+      padding: 120px 24px;
+    }
+
+    .social__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px 36px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .social-card--instagram:hover {
+      border-color: rgba(255, 78, 199, 0.3);
+      box-shadow: 0 0 40px rgba(255, 78, 199, 0.1);
+    }
+
+    .social-card--facebook:hover {
+      border-color: rgba(84, 215, 255, 0.3);
+      box-shadow: 0 0 40px rgba(84, 215, 255, 0.1);
+    }
+
+    .social-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .social-card--instagram .social-card__icon {
+      background: linear-gradient(135deg, rgba(255, 78, 199, 0.15), rgba(156, 108, 255, 0.15));
+    }
+
+    .social-card--facebook .social-card__icon {
+      background: rgba(84, 215, 255, 0.12);
+    }
+
+    .social-card__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .social-card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .social-card__name {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .social-card__handle {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .social-card__arrow {
+      margin-left: auto;
+      color: var(--text-secondary);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-card:hover .social-card__arrow {
+      transform: translateX(4px);
+      color: var(--text-primary);
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      padding: 120px 24px;
+    }
+
+    .cta-box {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 80px 48px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-green), var(--cyan), var(--purple), var(--pink));
+    }
+
+    .cta-box__title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .cta-box__text {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      padding: 60px 24px 40px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer__logo {
+      font-size: 1.125rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--neon-green), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer__copy {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    .footer__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer__link {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .footer__link:hover {
+      color: var(--text-primary);
+    }
+
+    /* ===== Mobile Styles ===== */
+    @media (max-width: 768px) {
+      .navbar__links {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(5, 7, 13, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      .navbar__links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .navbar__link {
+        font-size: 1.125rem;
+        padding: 12px 24px;
+      }
+
+      .navbar__toggle {
+        display: flex;
+      }
+
+      .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 48px 24px;
+      }
+
+      .footer__inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer__brand {
+        align-items: center;
+      }
+
+      .footer__links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 80px 16px;
+      }
+
+      .stats {
+        padding: 40px 16px;
+      }
+
+      .stats__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 24px 16px;
+      }
+
+      .feature-card {
+        padding: 28px;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero__actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ===== Scroll Reveal Animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <!-- Animated Background Orbs -->
+  <div class="bg-animation" aria-hidden="true">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+    <div class="bg-orb bg-orb--4"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar__inner">
+        <a href="#" class="navbar__logo">Festival Florece</a>
+        <div class="navbar__links" id="navLinks">
+          <a href="https://premiosflorece.com" class="navbar__link" target="_blank" rel="noopener noreferrer">Premios Florece</a>
+          <a href="https://www.instagram.com/festivalflorece" class="navbar__link" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/FestivalFlorece/" class="navbar__link" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="navbar__link navbar__link--cta" target="_blank" rel="noopener noreferrer">Tickets</a>
+        </div>
+        <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot"></span>
+          Coming Soon
+        </div>
+        <h1 class="hero__title reveal reveal-delay-1">Festival<br>Florece</h1>
+        <p class="hero__subtitle reveal reveal-delay-2">Music <span>•</span> Culture <span>•</span> Experience</p>
+        <p class="hero__description reveal reveal-delay-3">
+          A vibrant, immersive celebration where music, art, and community converge.
+          Feel the pulse of live performances, discover emerging talent, and lose yourself
+          in a world crafted for the senses.
+        </p>
+        <div class="hero__actions reveal reveal-delay-4">
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+            Buy Tickets
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://premiosflorece.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">
+            Explore Premios Florece
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="section__inner">
+        <div class="stats__grid">
+          <div class="stat-card reveal">
+            <div class="stat-card__number">50+</div>
+            <div class="stat-card__label">Artists</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-1">
+            <div class="stat-card__number">4</div>
+            <div class="stat-card__label">Stages</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-2">
+            <div class="stat-card__number">10K+</div>
+            <div class="stat-card__label">Attendees</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <div class="stat-card__number">12h</div>
+            <div class="stat-card__label">Non-stop</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-header__label">The Experience</span>
+          <h2 class="section-header__title">More Than a Festival</h2>
+          <p class="section-header__description">
+            Florece is a multi-sensory journey — curated stages, immersive art, culinary delights, and a community that blooms together.
+          </p>
+        </div>
+        <div class="features__grid">
+          <div class="feature-card reveal">
+            <div class="feature-card__icon">🎵</div>
+            <h3 class="feature-card__title">Live Music</h3>
+            <p class="feature-card__text">
+              From headlining acts to hidden-gem sets, experience the full spectrum of sound across multiple stages with world-class production.
+            </p>
+          </div>
+          <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-card__icon">🎨</div>
+            <h3 class="feature-card__title">Art &amp; Culture</h3>
+            <p class="feature-card__text">
+              Wander through immersive art installations, live murals, and cultural showcases that transform the festival grounds into a living gallery.
+            </p>
+          </div>
+          <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-card__icon">🍜</div>
+            <h3 class="feature-card__title">Food &amp; Experience</h3>
+            <p class="feature-card__text">
+              Savor a curated selection of culinary experiences, from artisan street food to craft cocktails, designed to fuel your festival journey.
+            </p>
+          </div>
+          <div class="feature-card reveal reveal-delay-3">
+            <div class="feature-card__icon">🌱</div>
+            <h3 class="feature-card__title">Community</h3>
+            <p class="feature-card__text">
+              At the heart of Florece is a movement — a community united by creativity, expression, and the collective energy of shared moments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section class="social" id="social">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-header__label">Stay Connected</span>
+          <h2 class="section-header__title">Follow the Movement</h2>
+          <p class="section-header__description">
+            Join our community on social media for the latest updates, artist announcements, and behind-the-scenes content.
+          </p>
+        </div>
+        <div class="social__grid">
+          <a href="https://www.instagram.com/festivalflorece" class="social-card social-card--instagram reveal" target="_blank" rel="noopener noreferrer">
+            <div class="social-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="var(--pink)" stroke="none"/>
+              </svg>
+            </div>
+            <div class="social-card__info">
+              <span class="social-card__name">Instagram</span>
+              <span class="social-card__handle">@festivalflorece</span>
+            </div>
+            <span class="social-card__arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a href="https://www.facebook.com/FestivalFlorece/" class="social-card social-card--facebook reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
+            <div class="social-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </div>
+            <div class="social-card__info">
+              <span class="social-card__name">Facebook</span>
+              <span class="social-card__handle">Festival Florece</span>
+            </div>
+            <span class="social-card__arrow">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="section__inner">
+        <div class="cta-box reveal">
+          <h2 class="cta-box__title">Ready to Bloom?</h2>
+          <p class="cta-box__text">
+            Secure your spot at the most anticipated festival of the year. Limited tickets available.
+          </p>
+          <div class="hero__actions">
+            <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+              Get Your Tickets
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo">Festival Florece</span>
+          <span class="footer__copy">&copy; 2026 Festival Florece. All rights reserved.</span>
+        </div>
+        <div class="footer__links">
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="footer__link" target="_blank" rel="noopener noreferrer">Tickets</a>
+          <a href="https://premiosflorece.com" class="footer__link" target="_blank" rel="noopener noreferrer">Premios Florece</a>
+          <a href="https://www.instagram.com/festivalflorece" class="footer__link" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/FestivalFlorece/" class="footer__link" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Navbar scroll effect
+    (function() {
+      var navbar = document.getElementById('navbar');
+      var scrollThreshold = 40;
+
+      function onScroll() {
+        if (window.scrollY > scrollThreshold) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Mobile nav toggle
+    (function() {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+
+      toggle.addEventListener('click', function() {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close mobile nav when a link is clicked
+      var navLinks = links.querySelectorAll('.navbar__link');
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+          links.classList.remove('open');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+    })();
+
+    // Scroll reveal using IntersectionObserver
+    (function() {
+      var reveals = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show everything immediately
+        reveals.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
