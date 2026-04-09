@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Festival Florece — Music • Culture • Experience</title>
-  <meta name="description" content="Festival Florece is a vibrant, immersive music and culture festival. Get your tickets now and join the experience.">
-  <meta property="og:title" content="Festival Florece">
-  <meta property="og:description" content="Music • Culture • Experience — A vibrant, immersive festival celebrating music, art, food, and community.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CLNPEZ5CH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4CLNPEZ5CH');
+  </script>
+  <title>Festival Florece — Música • Cultura • Experiencia</title>
+  <meta name="description" content="Festival Florece es un vibrante festival inmersivo de música y cultura. Consigue tus boletos ahora y únete a la experiencia.">
+  <link rel="canonical" href="https://festivalflorece.github.io">
+  <meta property="og:title" content="Festival Florece — Música • Cultura • Experiencia">
+  <meta property="og:description" content="Música • Cultura • Experiencia — Un festival vibrante e inmersivo que celebra la música, el arte, la comida y la comunidad.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://festivalflorece.github.io">
+  <meta property="og:image" content="https://festivalflorece.github.io/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Festival Florece — Música • Cultura • Experiencia">
+  <meta name="twitter:description" content="Música • Cultura • Experiencia — Un festival vibrante e inmersivo que celebra la música, el arte, la comida y la comunidad.">
+  <meta name="twitter:image" content="https://festivalflorece.github.io/og-image.svg">
+  <link rel="icon" type="image/svg+xml" href="/og-image.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -316,7 +332,7 @@
       line-height: 1.7;
       color: var(--text-secondary);
       max-width: 600px;
-      margin: 0 auto 48px;
+      margin: 0 auto 40px;
     }
 
     .hero__actions {
@@ -437,12 +453,12 @@
 
     /* ===== Features Section ===== */
     .features {
-      padding: 120px 24px;
+      padding: 100px 24px;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 64px;
+      margin-bottom: 48px;
     }
 
     .section-header__label {
@@ -562,9 +578,56 @@
       color: var(--text-secondary);
     }
 
+    /* ===== Experiencias Section ===== */
+    .experiencias {
+      padding: 100px 24px;
+    }
+
+    .experiencias__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .experiencia-group {
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .experiencia-group__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .experiencia-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .experiencia-list li {
+      padding: 8px 0;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .experiencia-list li:before {
+      content: "•";
+      color: var(--neon-green);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
     /* ===== Social Section ===== */
     .social {
-      padding: 120px 24px;
+      padding: 100px 24px;
     }
 
     .social__grid {
@@ -655,7 +718,7 @@
 
     /* ===== CTA Section ===== */
     .cta-section {
-      padding: 120px 24px;
+      padding: 100px 24px;
     }
 
     .cta-box {
@@ -691,11 +754,22 @@
     .cta-box__text {
       font-size: 1.0625rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.7;
       margin-bottom: 40px;
-      max-width: 480px;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .cta-box .btn--primary {
+      padding: 18px 36px;
+      font-size: 1rem;
+      box-shadow: 0 0 35px rgba(212, 255, 63, 0.35), 0 0 70px rgba(212, 255, 63, 0.15);
+    }
+
+    .cta-box .btn--secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
     /* ===== Footer ===== */
@@ -795,6 +869,15 @@
         grid-template-columns: 1fr;
       }
 
+      .experiencias__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .experiencia-group {
+        padding: 24px;
+      }
+
       .social__grid {
         grid-template-columns: 1fr;
       }
@@ -866,6 +949,205 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===== Hero Location ===== */
+    .hero__location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .hero__location svg {
+      width: 16px;
+      height: 16px;
+      color: var(--neon-green);
+    }
+
+    .hero__location-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .hero__location-link:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero__tagline {
+      font-size: clamp(0.9rem, 2vw, 1.125rem);
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== Artists Section ===== */
+    .artists {
+      padding: 100px 24px;
+    }
+
+    .artists__content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .artists__header {
+      margin-bottom: 48px;
+    }
+
+    .artists__label {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neon-green);
+      margin-bottom: 12px;
+    }
+
+    .artists__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .artists__subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .artists__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .artist-chip {
+      padding: 14px 20px;
+      border-radius: 100px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .artist-chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .artist-chip:nth-child(1) {
+      border-color: rgba(212, 255, 63, 0.2);
+    }
+
+    .artist-chip:nth-child(2) {
+      border-color: rgba(84, 215, 255, 0.2);
+    }
+
+    .artist-chip:nth-child(3) {
+      border-color: rgba(156, 108, 255, 0.2);
+    }
+
+    .artist-chip:nth-child(4) {
+      border-color: rgba(255, 78, 199, 0.2);
+    }
+
+    .artist-chip:nth-child(5) {
+      border-color: rgba(212, 255, 63, 0.2);
+    }
+
+    .artist-chip:nth-child(6) {
+      border-color: rgba(84, 215, 255, 0.2);
+    }
+
+    .artists__note {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* ===== Proof Section ===== */
+    .proof {
+      padding: 100px 24px;
+      background: rgba(255, 255, 255, 0.01);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .proof__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .proof__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .proof__icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .proof__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .proof__text {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ===== Mobile Styles Updates ===== */
+    @media (max-width: 768px) {
+      .artists__grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .proof__inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .artists__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .artist-chip {
+        padding: 12px 16px;
+        font-size: 0.8125rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -883,12 +1165,12 @@
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
       <div class="navbar__inner">
-        <a href="#" class="navbar__logo">Festival Florece</a>
+        <a href="#hero" class="navbar__logo">Festival Florece</a>
         <div class="navbar__links" id="navLinks">
           <a href="https://premiosflorece.com" class="navbar__link" target="_blank" rel="noopener noreferrer">Premios Florece</a>
           <a href="https://www.instagram.com/festivalflorece" class="navbar__link" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.facebook.com/FestivalFlorece/" class="navbar__link" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="navbar__link navbar__link--cta" target="_blank" rel="noopener noreferrer">Tickets</a>
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="navbar__link navbar__link--cta" target="_blank" rel="noopener noreferrer">Boletos</a>
         </div>
         <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
@@ -902,23 +1184,29 @@
     <section class="hero" id="hero">
       <div class="hero__content">
         <div class="hero__badge reveal">
-          <span class="hero__badge-dot"></span>
+          <span class="hero__badge-dot" aria-hidden="true"></span>
           Saturday, April 18th 2026
         </div>
         <h1 class="hero__title reveal reveal-delay-1">Festival<br>Florece</h1>
-        <p class="hero__subtitle reveal reveal-delay-2">Music <span>•</span> Culture <span>•</span> Experience</p>
+        <p class="hero__tagline reveal reveal-delay-1">La Experiencia Cultural de Música y Arte de Puerto Rico</p>
+        <div class="hero__location reveal reveal-delay-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <a class="hero__location-link" href="https://www.google.com/maps/search/?api=1&query=Jard%C3%ADn+Bot%C3%A1nico+y+Cultural+de+Caguas+William+Miranda+Mar%C3%ADn" target="_blank" rel="noopener noreferrer">Jardín Botánico y Cultural de Caguas William Miranda Marín · PR-156, Caguas 00726</a>
+        </div>
+        <p class="hero__subtitle reveal reveal-delay-2">Música <span>•</span> Cultura <span>•</span> Experiencia</p>
         <p class="hero__description reveal reveal-delay-3">
-          A vibrant, immersive celebration where music, art, and community converge.
-          Feel the pulse of live performances, discover emerging talent, and lose yourself
-          in a world crafted for the senses.
+          Vive música, arte y cultura en una noche inolvidable. Únete a los 250K+ que ya siguen el movimiento.
         </p>
         <div class="hero__actions reveal reveal-delay-4">
-          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-            Buy Tickets
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" data-location="hero" target="_blank" rel="noopener noreferrer">
+            Comprar Boletos
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="https://premiosflorece.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">
-            Explore Premios Florece
+            Conoce Más
           </a>
         </div>
       </div>
@@ -930,19 +1218,19 @@
         <div class="stats__grid">
           <div class="stat-card reveal">
             <div class="stat-card__number">30+</div>
-            <div class="stat-card__label">Artists</div>
+            <div class="stat-card__label">Artistas</div>
           </div>
           <div class="stat-card reveal reveal-delay-1">
             <div class="stat-card__number">2</div>
-            <div class="stat-card__label">Stages</div>
+            <div class="stat-card__label">Escenarios</div>
           </div>
           <div class="stat-card reveal reveal-delay-2">
             <div class="stat-card__number">250K+</div>
-            <div class="stat-card__label">Impressions</div>
+            <div class="stat-card__label">Alcance Social</div>
           </div>
           <div class="stat-card reveal reveal-delay-3">
             <div class="stat-card__number">14h</div>
-            <div class="stat-card__label">Non-stop</div>
+            <div class="stat-card__label">Sin Parar</div>
           </div>
         </div>
       </div>
@@ -952,40 +1240,160 @@
     <section class="features" id="features">
       <div class="section__inner">
         <div class="section-header reveal">
-          <span class="section-header__label">The Experience</span>
-          <h2 class="section-header__title">More Than a Festival</h2>
+          <span class="section-header__label">La Experiencia</span>
+          <h2 class="section-header__title">Más Que un Festival</h2>
           <p class="section-header__description">
-            Florece is a multi-sensory journey — curated performances, immersive art, culinary delights, and a thriving community of creators and culture lovers.
+            Florece es un viaje multisensorial de música en vivo, arte inmersivo, momentos culinarios y una comunidad cultural vibrante.
           </p>
         </div>
         <div class="features__grid">
           <div class="feature-card reveal">
-            <div class="feature-card__icon">🎵</div>
-            <h3 class="feature-card__title">Live Music</h3>
+            <div class="feature-card__icon" aria-hidden="true">🎵</div>
+            <h3 class="feature-card__title">Música en Vivo</h3>
             <p class="feature-card__text">
-              From headlining acts to hidden-gem sets, experience the full spectrum of sound across multiple stages with world-class production.
+              Desde actos principales hasta sets ocultos, experimenta todo el espectro de sonido en múltiples escenarios con producción de clase mundial.
             </p>
           </div>
           <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-card__icon">🎨</div>
-            <h3 class="feature-card__title">Art &amp; Culture</h3>
+            <div class="feature-card__icon" aria-hidden="true">🎨</div>
+            <h3 class="feature-card__title">Arte y Cultura</h3>
             <p class="feature-card__text">
-              Wander through immersive art installations, live murals, and cultural showcases that transform the festival grounds into a living gallery.
+              Pasea por instalaciones de arte inmersivas, murales en vivo y showcases culturales que transforman los terrenos del festival en una galería viva.
             </p>
           </div>
           <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-card__icon">🍜</div>
-            <h3 class="feature-card__title">Food &amp; Experience</h3>
+            <div class="feature-card__icon" aria-hidden="true">🍜</div>
+            <h3 class="feature-card__title">Comida y Experiencia</h3>
             <p class="feature-card__text">
-              Savor a curated selection of culinary experiences, from artisan street food to craft cocktails, designed to fuel your festival journey.
+              Saborea una selección curada de experiencias culinarias, desde comida callejera artesanal hasta cócteles craft, diseñados para alimentar tu viaje al festival.
             </p>
           </div>
           <div class="feature-card reveal reveal-delay-3">
-            <div class="feature-card__icon">🌱</div>
-            <h3 class="feature-card__title">Community</h3>
+            <div class="feature-card__icon" aria-hidden="true">🌱</div>
+            <h3 class="feature-card__title">Comunidad</h3>
             <p class="feature-card__text">
-              At the heart of Florece is a movement — a community united by creativity, expression, and the collective energy of shared moments.
+              En el corazón de Florece está un movimiento — una comunidad unida por la creatividad, la expresión y la energía colectiva de momentos compartidos.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencias -->
+    <section class="experiencias">
+      <div class="section__inner">
+        <div class="section-header reveal">
+          <span class="section-header__label">Experiencias</span>
+          <h2 class="section-header__title">Más de 20 Experiencias</h2>
+          <p class="section-header__description">
+            Más de 20 experiencias para vivir la música, el arte, el bienestar y la cultura en un solo lugar.
+          </p>
+        </div>
+        <div class="experiencias__grid">
+          <div class="experiencia-group reveal">
+            <h3 class="experiencia-group__title">Experiencias Principales</h3>
+            <ul class="experiencia-list">
+              <li>Música en vivo</li>
+              <li>Premios Florece</li>
+              <li>Expo educativa</li>
+              <li>Charlas y conferencias educativas</li>
+            </ul>
+          </div>
+          <div class="experiencia-group reveal reveal-delay-1">
+            <h3 class="experiencia-group__title">Experiencias Destacadas</h3>
+            <ul class="experiencia-list">
+              <li>Exhibiciones de bonsái</li>
+              <li>Open Mic</li>
+              <li>Graffiti en vivo</li>
+              <li>Pintura acrílica en vivo</li>
+              <li>Área de tatuajes</li>
+            </ul>
+          </div>
+          <div class="experiencia-group reveal reveal-delay-2">
+            <h3 class="experiencia-group__title">Bienestar y Experiencia</h3>
+            <ul class="experiencia-list">
+              <li>Estaciones de bienestar: Yoga, Pilates, Sound Healing, Reiki</li>
+              <li>Lectura de tarot</li>
+            </ul>
+          </div>
+          <div class="experiencia-group reveal reveal-delay-3">
+            <h3 class="experiencia-group__title">Área Social</h3>
+            <ul class="experiencia-list">
+              <li>Comida, bebidas y barra</li>
+              <li>Mini juegos interactivos (premios)</li>
+              <li>Áreas pet-friendly / oasis</li>
+            </ul>
+          </div>
+          <div class="experiencia-group reveal reveal-delay-4">
+            <h3 class="experiencia-group__title">Activaciones y Servicios</h3>
+            <ul class="experiencia-list">
+              <li>Giveaways</li>
+              <li>Licenciamiento de pacientes</li>
+            </ul>
+          </div>
+          <div class="experiencia-group reveal reveal-delay-4">
+            <h3 class="experiencia-group__title">Extra</h3>
+            <ul class="experiencia-list">
+              <li>Otras sorpresas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Artists -->
+    <section class="artists">
+      <div class="artists__content section__inner">
+        <div class="artists__header reveal">
+          <span class="artists__label">Artistas Destacados</span>
+          <h2 class="artists__title">Un lineup con cultura y energía</h2>
+          <p class="artists__subtitle">Nombres ya confirmados para una noche de sonido, ritmo y comunidad puertorriqueña.</p>
+        </div>
+        <div class="artists__grid reveal reveal-delay-1">
+          <span class="artist-chip">Gomba</span>
+          <span class="artist-chip">MYO Kill</span>
+          <span class="artist-chip">Mean Grey Cat</span>
+          <span class="artist-chip">Habichuelas</span>
+          <span class="artist-chip">Gera Akate</span>
+          <span class="artist-chip">DJ Notion</span>
+          <span class="artist-chip">DJ Bolt</span>
+        </div>
+        <p class="artists__note reveal reveal-delay-2">and more to be announced</p>
+      </div>
+    </section>
+
+    <!-- Social Proof / Momentum -->
+    <section class="proof">
+      <div class="proof__inner section__inner">
+        <div class="proof__item reveal">
+          <div class="proof__icon" aria-hidden="true">✨</div>
+          <h3 class="proof__title">El movimiento de Festival Florece sigue creciendo</h3>
+          <p class="proof__text">Florece está captando atención en la escena cultural de Puerto Rico, con 250K+ de alcance social en el último mes.</p>
+        </div>
+        <div class="proof__item reveal reveal-delay-1">
+          <div class="proof__icon" aria-hidden="true">📈</div>
+          <h3 class="proof__title">El engagement crece rápido</h3>
+          <p class="proof__text">5.8K+ interacciones y casi 400 nuevos seguidores ya están sintonizando.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="section__inner">
+        <div class="cta-box reveal">
+          <h2 class="cta-box__title">Asegura tu lugar en Festival Florece</h2>
+          <p class="cta-box__text">
+            Asegura boletos ahora para una noche premium de música, arte y cultura local.
+          </p>
+          <div class="hero__actions">
+            <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" data-location="cta" target="_blank" rel="noopener noreferrer">
+              Comprar Boletos
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://premiosflorece.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">
+              Premios Florece
+            </a>
           </div>
         </div>
       </div>
@@ -995,16 +1403,16 @@
     <section class="social" id="social">
       <div class="section__inner">
         <div class="section-header reveal">
-          <span class="section-header__label">Stay Connected</span>
-          <h2 class="section-header__title">Follow the Movement</h2>
+          <span class="section-header__label">Mantente Conectado</span>
+          <h2 class="section-header__title">Sigue el Movimiento</h2>
           <p class="section-header__description">
-            Join our community on social media for the latest updates, artist announcements, and behind-the-scenes content.
+            Únete a nuestra comunidad en redes sociales para las últimas actualizaciones, anuncios de artistas y contenido detrás de escena.
           </p>
         </div>
         <div class="social__grid">
           <a href="https://www.instagram.com/festivalflorece" class="social-card social-card--instagram reveal" target="_blank" rel="noopener noreferrer">
             <div class="social-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <rect x="2" y="2" width="20" height="20" rx="5"/>
                 <circle cx="12" cy="12" r="5"/>
                 <circle cx="17.5" cy="6.5" r="1.5" fill="var(--pink)" stroke="none"/>
@@ -1020,7 +1428,7 @@
           </a>
           <a href="https://www.facebook.com/FestivalFlorece/" class="social-card social-card--facebook reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
             <div class="social-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
             </div>
@@ -1029,27 +1437,9 @@
               <span class="social-card__handle">Festival Florece</span>
             </div>
             <span class="social-card__arrow">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M5 10h10M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="section__inner">
-        <div class="cta-box reveal">
-          <h2 class="cta-box__title">Ready to Bloom?</h2>
-          <p class="cta-box__text">
-            Secure your spot at the most anticipated festival of the year. Limited tickets available.
-          </p>
-          <div class="hero__actions">
-            <a href="https://boletos.prticket.com/events/en/festivalflorece" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-              Get Your Tickets
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
         </div>
       </div>
     </section>
@@ -1062,7 +1452,7 @@
           <span class="footer__copy">&copy; 2026 Festival Florece. All rights reserved.</span>
         </div>
         <div class="footer__links">
-          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="footer__link" target="_blank" rel="noopener noreferrer">Tickets</a>
+          <a href="https://boletos.prticket.com/events/en/festivalflorece" class="footer__link" target="_blank" rel="noopener noreferrer">Boletos</a>
           <a href="https://premiosflorece.com" class="footer__link" target="_blank" rel="noopener noreferrer">Premios Florece</a>
           <a href="https://www.instagram.com/festivalflorece" class="footer__link" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.facebook.com/FestivalFlorece/" class="footer__link" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -1137,6 +1527,50 @@
         reveals.forEach(function(el) {
           el.classList.add('visible');
         });
+      }
+    })();
+
+    // GA4 click tracking for Buy Tickets CTA
+    (function() {
+      if (window.__buyTicketsTrackingInitialized) return;
+      window.__buyTicketsTrackingInitialized = true;
+
+      function getButtonLocation(btn) {
+        return btn.dataset.location || (function() {
+          var section = btn.closest('section');
+          if (!section) return 'unknown';
+          if (section.id === 'hero') return 'hero';
+          if (section.classList.contains('cta-section')) return 'cta';
+          return 'unknown';
+        })();
+      }
+
+      function handleBuyClick(event) {
+        var btn = event.currentTarget;
+        var buttonLocation = getButtonLocation(btn);
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            event_category: 'CTA',
+            event_label: btn.innerText.trim(),
+            button_location: buttonLocation,
+            page_path: window.location.pathname,
+            value: 1
+          });
+        }
+      }
+
+      function trackBuyTickets() {
+        var buyButtons = document.querySelectorAll('a.btn.btn--primary');
+        buyButtons.forEach(function(button) {
+          button.addEventListener('click', handleBuyClick);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', trackBuyTickets);
+      } else {
+        trackBuyTickets();
       }
     })();
   </script>
